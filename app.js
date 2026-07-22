@@ -165,10 +165,23 @@ app.use((req,res,next)=>{
 // //   res.status(statusCode).send(message);  
 // });
 
+// app.use((err, req, res, next) => {
+//     console.error(err);   // <-- Add this line
+//     let { statusCode = 500, message = "something went wrong!" } = err;
+//     res.status(statusCode).render("error.ejs", { message });
+// });
+
 app.use((err, req, res, next) => {
-    console.error(err);   // <-- Add this line
-    let { statusCode = 500, message = "something went wrong!" } = err;
-    res.status(statusCode).render("error.ejs", { message });
+    console.error("========== FULL ERROR ==========");
+    console.error(err.stack);
+    console.error("===============================");
+
+    let { statusCode = 500, message = "Something went wrong!" } = err;
+
+    res.status(statusCode).send(`
+        <h1>Error ${statusCode}</h1>
+        <pre>${message}</pre>
+    `);
 });
 
 app.listen(8080,()=>{
