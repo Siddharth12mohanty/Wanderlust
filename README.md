@@ -1,19 +1,57 @@
-# Wanderlust
+# 🏡 Wanderlust
 
-A full-stack Airbnb-inspired web application built using Node.js, Express.js, MongoDB Atlas, EJS, and Cloudinary.
+A full-stack Airbnb-inspired web application where users can create, explore, review, and manage property listings.
 
-## Features
+---
 
-- User Authentication (Login & Signup)
-- Create, Update & Delete Listings
-- Upload Images with Cloudinary
-- Search Listings by Country
-- Reviews and Ratings
-- Interactive Maps
-- Flash Messages
-- Responsive UI
+# 📸 Screenshots
 
-## Tech Stack
+## Home Page
+
+![Home](assets/home.png)
+
+---
+
+## Listing Details
+
+![Listing](assets/listing-details.png)
+
+---
+
+## Add Listing
+
+![Add Listing](assets/add-listing.png)
+
+---
+
+## Login
+
+![Login](assets/login.png)
+
+---
+
+## Signup
+
+![Signup](assets/signup.png)
+
+---
+
+# ✨ Features
+
+- ✅ User Authentication
+- ✅ Create Listings
+- ✅ Edit Listings
+- ✅ Delete Listings
+- ✅ Reviews & Ratings
+- ✅ Search by Country
+- ✅ Cloudinary Image Upload
+- ✅ Interactive Maps
+- ✅ Flash Messages
+- ✅ Responsive Design
+
+---
+
+# 🛠 Tech Stack
 
 - Node.js
 - Express.js
@@ -23,17 +61,22 @@ A full-stack Airbnb-inspired web application built using Node.js, Express.js, Mo
 - Bootstrap
 - Passport.js
 - Cloudinary
+- Mapbox
 
-## Installation
+---
+
+# 🚀 Installation
 
 ```bash
 npm install
 npm start
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file and add:
+# 🔑 Environment Variables
+
+Create a `.env` file:
 
 ```env
 ATLASDB_URL=your_mongodb_connection_string
@@ -42,6 +85,8 @@ CLOUD_API_KEY=your_cloud_api_key
 CLOUD_API_SECRET=your_cloud_api_secret
 ```
 
-## Author
+---
+
+# 👨‍💻 Author
 
 **Siddharth Mohanty**
