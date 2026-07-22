@@ -163,8 +163,9 @@ app.use("/", userRouter);
 //     res.send("successful testing");
 // });
 
-app.use((req,res,next)=>{
-    next(new ExpressError(404,"Page not found!"));
+app.use((req, res, next) => {
+    console.log("404 URL:", req.originalUrl);
+    next(new ExpressError(404, "Page not found!"));
 });
 
 // app.use((err,req,res,next)=>{
