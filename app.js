@@ -135,6 +135,9 @@ app.use(async (req, res, next) => {
 //     res.send(registeredUser);
 // });
 
+app.get("/test", (req, res) => {
+    res.send("Server is working");
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
