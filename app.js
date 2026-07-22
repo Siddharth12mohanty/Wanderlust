@@ -180,16 +180,15 @@ app.use((req,res,next)=>{
 // });
 
 app.use((err, req, res, next) => {
-    console.error("========== FULL ERROR ==========");
-    console.error(err.stack);
-    console.error("===============================");
+    console.log("========== REAL ERROR ==========");
+    console.error(err.stack || err);
+    console.log("Status:", err.statusCode);
+    console.log("Message:", err.message);
+    console.log("===============================");
 
-    let { statusCode = 500, message = "Something went wrong!" } = err;
+    const statusCode = err.statusCode || 500;
 
-    res.status(statusCode).send(`
-        <h1>Error ${statusCode}</h1>
-        <pre>${message}</pre>
-    `);
+    res.status(statusCode).send(err.stack || err.message);
 });
 
 // app.listen(8080,()=>{
