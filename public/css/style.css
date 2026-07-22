@@ -1,5 +1,5 @@
 body{
-    font-family: "plus Jakarta Sans", sans-serif !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -10,7 +10,7 @@ body{
 }
 
 .navbar{
-    height:5rem;
+    height: 5rem;
     background-color: white;
 }
 
@@ -33,7 +33,9 @@ body{
     text-decoration: underline;
 }
 
-.f-info-links,.f-info-socials, .f-info-brand{
+.f-info-links,
+.f-info-socials,
+.f-info-brand{
     width: 100%;
     display: flex;
     align-items: center;
@@ -53,34 +55,19 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
-
 }
 
 /* Cards */
-/* .listing-card{
+.listing-card{
     border: none !important;
     margin-bottom: 2rem;
-} */
-
-.listing-card{
-    border: none;
-    margin-bottom: 2rem;
-    height: 100%;
 }
 
-/* .card-img-top{
+.card-img-top{
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
-} */
-
-.card-img-top{
-    height: 20rem;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
 }
-
 
 .card-body{
     padding: 0 !important;
@@ -120,8 +107,6 @@ body{
     height: 30vh;
 }
 
-
-
 .btns{
     display: flex;
 }
@@ -131,8 +116,8 @@ body{
     padding-right: 0;
 }
 
-
-#map{ height: 400px;
-         width:80vh; 
-    border-radius:15px;
+#map{
+    height: 400px;
+    width: 80vh;
+    border-radius: 15px;
 }
