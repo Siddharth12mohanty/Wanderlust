@@ -66,19 +66,16 @@
   </div>
 </div>
 
-<!-- Listings -->
-<div class="row g-4">
+<!-- Listings Grid -->
+<div class="row g-4" id="listings-grid">
 
     <% for(let listing of allListings){ %>
 
-    <div class="col-12 col-sm-6 col-lg-4">
+    <div class="col-12 col-sm-6 col-lg-4 listing-col" data-category="<%= listing.category || 'Trending' %>">
 
         <a href="/listings/<%= listing._id %>" class="listing-link">
 
-            <div
-                class="card listing-card"
-                data-category="<%= listing.category %>"
-            >
+            <div class="card listing-card">
 
                 <img
                     src="<%= listing.image.url %>"
@@ -93,7 +90,7 @@
                         <b><%= listing.title %></b><br>
 
                         &#8377;
-                        <%= listing.price.toLocaleString("en-IN") %>
+                        <%= listing.price ? listing.price.toLocaleString("en-IN") : '0' %>
                         / night
 
                         <span class="tax-info">
@@ -110,57 +107,78 @@
 
     <% } %>
 
+    <!-- Empty State fallback -->
+    <div id="no-listings-msg" class="col-12 text-center py-5 d-none">
+        <i class="fa-solid fa-compass fa-3x text-danger mb-3"></i>
+        <h4 class="fw-bold">No listings found for this category</h4>
+        <p class="text-muted">Try selecting a different filter or view all available places.</p>
+        <button class="btn btn-danger rounded-pill px-4 py-2 mt-2 fw-semibold" onclick="resetAllFilters()">
+            Show All Listings
+        </button>
+    </div>
+
 </div>
 
 <script>
+// Tax switch toggle
+const taxSwitch = document.getElementById("switchCheckDefault");
+if (taxSwitch) {
+    taxSwitch.addEventListener("click", () => {
+        const taxInfo = document.querySelectorAll(".tax-info");
+        taxInfo.forEach(info => {
+            info.style.display = info.style.display === "inline" ? "none" : "inline";
+        });
+    });
+}
 
-const taxSwitch=document.getElementById("switchCheckDefault");
-
-taxSwitch.addEventListener("click",()=>{
-
-const taxInfo=document.querySelectorAll(".tax-info");
-
-taxInfo.forEach(info=>{
-
-info.style.display=
-info.style.display==="inline"
-?"none"
-:"inline";
-
-});
-
-});
-
-const filters=document.querySelectorAll(".filter");
-
-const cards=document.querySelectorAll(".listing-card");
+// Category filter functionality
+const filters = document.querySelectorAll(".filter");
+const cols = document.querySelectorAll(".listing-col");
+const noMatchMsg = document.getElementById("no-listings-msg");
 
 let selectedCategory = null;
+
+function applyCategoryFilter(category) {
+    let visibleCount = 0;
+
+    cols.forEach(col => {
+        const cardCategory = col.dataset.category || "Trending";
+        
+        if (!category || cardCategory === category) {
+            col.style.display = "block";
+            visibleCount++;
+        } else {
+            col.style.display = "none";
+        }
+    });
+
+    if (noMatchMsg) {
+        if (visibleCount === 0) {
+            noMatchMsg.classList.remove("d-none");
+        } else {
+            noMatchMsg.classList.add("d-none");
+        }
+    }
+}
+
+function resetAllFilters() {
+    selectedCategory = null;
+    filters.forEach(f => f.classList.remove("active-filter"));
+    applyCategoryFilter(null);
+}
 
 filters.forEach(filter => {
     filter.addEventListener("click", () => {
         const category = filter.dataset.filter;
         
         if (selectedCategory === category) {
-            selectedCategory = null;
-            filters.forEach(f => f.classList.remove("active-filter"));
-            cards.forEach(card => {
-                card.parentElement.style.display = "block";
-            });
+            resetAllFilters();
         } else {
             selectedCategory = category;
             filters.forEach(f => f.classList.remove("active-filter"));
             filter.classList.add("active-filter");
-            
-            cards.forEach(card => {
-                if (card.dataset.category === category) {
-                    card.parentElement.style.display = "block";
-                } else {
-                    card.parentElement.style.display = "none";
-                }
-            });
+            applyCategoryFilter(category);
         }
     });
 });
-
 </script>
