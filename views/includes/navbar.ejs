@@ -1,14 +1,15 @@
-<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-2 px-3">
+  <div class="container-fluid px-0">
 
-    <!-- Logo -->
-    <a class="navbar-brand" href="/listings">
-      <i class="fa-regular fa-compass"></i>
+    <!-- Logo & Brand Title -->
+    <a class="navbar-brand d-flex align-items-center" href="/listings">
+      <i class="fa-regular fa-compass brand-icon"></i>
+      <span class="brand-title ms-2">Wanderlust</span>
     </a>
 
-    <!-- Mobile Toggle -->
+    <!-- Mobile Toggle Button -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0 shadow-none p-2"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
@@ -18,74 +19,61 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar Content -->
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <!-- Navbar Content Collapsible -->
+    <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarNav">
 
-      <!-- Left -->
-      <ul class="navbar-nav">
+      <!-- Left Link -->
+      <ul class="navbar-nav me-lg-auto mb-2 mb-lg-0 text-center text-lg-start">
         <li class="nav-item">
-          <a class="nav-link" href="/listings">Explore</a>
+          <a class="nav-link fw-semibold px-3" href="/listings">Explore</a>
         </li>
       </ul>
 
-      <!-- Search -->
-     <!-- Search -->
-<div class="search-wrapper mx-auto">
+      <!-- Search Pill Bar -->
+      <div class="search-wrapper mx-lg-auto my-2 my-lg-0">
+        <form class="search-form d-flex align-items-center justify-content-center"
+              action="/listings/search"
+              method="GET">
 
-<form class="search-form"
-      action="/listings/search"
-      method="GET">
+          <div class="search-pill-container d-flex align-items-center">
+            <select class="form-select search-select border-0 shadow-none bg-transparent" name="country">
+              <option value="">🌍 All Countries</option>
+              <% if(countries && countries.length){ %>
+                <% countries.forEach(country=>{ %>
+                  <option value="<%= country %>"><%= country %></option>
+                <% }) %>
+              <% } %>
+            </select>
 
-<select class="form-select search-inp" name="country">
+            <button class="btn search-btn rounded-circle d-flex align-items-center justify-content-center" type="submit" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span class="d-none d-md-inline ms-1">Search</span>
+            </button>
+          </div>
 
-<option value="">🌍 All Countries</option>
+        </form>
+      </div>
 
-<% if(countries && countries.length){ %>
+      <!-- Right Auth & Action Links -->
+      <ul class="navbar-nav ms-lg-auto text-center text-lg-end align-items-center gap-1 gap-lg-2 mt-2 mt-lg-0">
 
-<% countries.forEach(country=>{ %>
-
-<option value="<%= country %>"><%= country %></option>
-
-<% }) %>
-
-<% } %>
-
-</select>
-
-<button class="btn search-btn">
-<i class="fa-solid fa-magnifying-glass"></i>
-Search
-</button>
-
-</form>
-
-</div>
-
-      <!-- Right -->
-      <ul class="navbar-nav ms-lg-auto text-center">
-
-        <li class="nav-item">
-          <a class="nav-link" href="/listings/new">
+        <li class="nav-item w-100 w-lg-auto">
+          <a class="nav-link host-link fw-semibold px-3 rounded-pill" href="/listings/new">
             Airbnb your home
           </a>
         </li>
 
         <% if(!currUser){ %>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <li class="nav-item w-100 w-lg-auto">
+            <a class="nav-link btn-signup-link fw-bold px-3 py-1 text-danger" href="/signup">Sign Up</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/login"><b>Log In</b></a>
+          <li class="nav-item w-100 w-lg-auto">
+            <a class="btn btn-danger btn-sm text-white rounded-pill px-4 py-2 font-weight-bold" href="/login">Log In</a>
           </li>
-
         <% } else { %>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/logout"><b>Log Out</b></a>
+          <li class="nav-item w-100 w-lg-auto">
+            <a class="btn btn-outline-dark btn-sm rounded-pill px-4 py-2 fw-semibold" href="/logout">Log Out</a>
           </li>
-
         <% } %>
 
       </ul>
