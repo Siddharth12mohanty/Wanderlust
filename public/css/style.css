@@ -240,66 +240,127 @@ body{
 
 /* ================= FILTERS ================= */
 
-
-#filters{
-
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-
+#filters {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1.25rem 0 0.5rem 0;
+    margin-bottom: 1.5rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE & Edge */
 }
 
-.filter{
-
-    text-align:center;
-    margin-right:2rem;
-    margin-top:2rem;
-
-    opacity:.7;
-
+#filters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
-.filter:hover{
-
-    opacity:1;
-    cursor:pointer;
-
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    height: 64px;
+    padding: 0.25rem 0.5rem 0.65rem 0.5rem;
+    opacity: 0.65;
+    color: #484848;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    flex-shrink: 0;
 }
 
-.filter.active-filter{
-
-    opacity:1;
-    border-bottom:2px solid #fe424d;
-    font-weight:600;
-
+/* Absolute positioned underline indicator ensures every filter active line sits at the EXACT same baseline line */
+.filter::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
 }
 
-.filter p{
-
-    font-size:.8rem;
-
+.filter div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    margin-bottom: 0.25rem;
 }
 
-.tax-info{
-
-    display:none;
-
+.filter i {
+    font-size: 1.35rem;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.tax-toggle{
+.filter p {
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin: 0 !important;
+    line-height: 1;
+    white-space: nowrap;
+}
 
-    border:1px solid #222;
-    border-radius:16px;
+.filter:hover {
+    opacity: 1;
+    color: #000000;
+}
 
-    height:52px;
+.filter:hover::after {
+    background-color: #dddddd;
+}
 
-    padding:0 18px;
+.filter:hover i {
+    transform: translateY(-2px);
+}
 
-    margin-left:2rem;
+.filter.active-filter {
+    opacity: 1;
+    color: #fe424d;
+}
 
-    display:flex;
-    align-items:center;
+.filter.active-filter::after {
+    background-color: #fe424d;
+}
 
+.filter.active-filter p {
+    font-weight: 600;
+}
+
+.filter.active-filter i {
+    color: #fe424d;
+    transform: scale(1.08);
+}
+
+.tax-info {
+    display: none;
+}
+
+.tax-toggle {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    height: 48px;
+    padding: 0 18px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+}
+
+.tax-toggle:hover {
+    border-color: #fe424d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 
@@ -316,16 +377,6 @@ body{
     max-width:95%;
 
 }
-
-
-#filters{
-
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:15px;
-
-}
-
 
 .search-wrapper{
 
@@ -390,48 +441,14 @@ body{
 
 
 #filters{
-
-    display:flex;
-
-    flex-wrap:nowrap;
-
-    overflow-x:auto;
-
-    white-space:nowrap;
-
-    padding-bottom:12px;
-
-    margin-top:10px;
-
+    gap: 1.25rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
-
-
-#filters::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-
-
-.filter{
-
-    min-width:75px;
-
-    margin-right:18px;
-
-    margin-top:0;
-
-}
-
 
 
 .tax-toggle{
-
-    min-width:260px;
-
-    margin-left:18px;
-
+    margin-left: 0.5rem;
 }
 
 
