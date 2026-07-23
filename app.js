@@ -144,6 +144,10 @@ app.get("/test", (req, res) => {
     res.send("Server is working");
 });
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/", userRouter);
@@ -186,14 +190,11 @@ app.use((req,res,next)=>{
 // });
 
 app.use((err, req, res, next) => {
+    let { statusCode = 500, message = "Something went wrong!" } = err;
 
-    console.log("========== REAL ERROR ==========");
-    console.log(err.stack);
-    console.log("Status:", err.statusCode);
-    console.log("Message:", err.message);
-    console.log("===============================");
-
-    res.status(err.statusCode || 500).send(err.stack);
+    res.status(statusCode).render("error.ejs", {
+        message
+    });
 });
 
 // app.listen(8080,()=>{
