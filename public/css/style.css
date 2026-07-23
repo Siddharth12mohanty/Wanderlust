@@ -155,13 +155,13 @@ body{
 
 
 
-/* ================= SEARCH ================= */
-
+/* ================= SEARCH BAR ================= */
 
 .search-wrapper{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex:1;
 }
 
 
@@ -176,44 +176,57 @@ body{
 .search-inp{
     width:260px;
     height:45px;
-    border-radius:50px;
+
+    border-radius:25px;
+
     border:1px solid #ddd;
-    padding:0 20px;
+    padding:0 18px;
+
     font-size:15px;
 }
+
 
 
 .search-btn{
 
     height:45px;
-    padding:0 25px;
+
+    padding:0 22px;
+
+    border-radius:25px!important;
 
     background:#fe424d!important;
+
     color:white!important;
 
     border:none!important;
-    border-radius:50px!important;
 
     font-weight:600;
 
     display:flex;
     align-items:center;
     justify-content:center;
+
     gap:8px;
 
 }
 
 
+
 .search-btn:hover{
 
     background:#e63946!important;
+
     color:white!important;
 
 }
 
 
+
 .search-btn i{
+
     color:white;
+
 }
 
 
@@ -320,6 +333,43 @@ body{
 
 @media(max-width:768px){
 
+
+    /* Mobile Search */
+
+.search-wrapper{
+
+    width:100%;
+    margin:15px 0;
+
+}
+
+
+.search-form{
+
+    width:100%;
+    justify-content:center;
+
+}
+
+
+.search-inp{
+
+    width:65%;
+    height:45px;
+
+}
+
+
+.search-btn{
+
+    width:35%;
+    height:45px;
+
+    padding:0 10px;
+
+    font-size:14px;
+
+}
 
 .container{
 
