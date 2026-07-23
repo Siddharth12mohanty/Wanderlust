@@ -9,23 +9,28 @@ body{
     flex:1;
 }
 
-/* Navbar */
+
+/* ================= NAVBAR ================= */
 
 .navbar{
     height:5rem;
     background:#fff;
 }
 
+
 .fa-compass{
     color:#fe424d;
     font-size:2rem;
 }
 
+
 .nav-link{
     color:#222!important;
 }
 
-/* Footer */
+
+
+/* ================= FOOTER ================= */
 
 .f-info{
     background:#ebebeb;
@@ -37,6 +42,7 @@ body{
     text-align:center;
 }
 
+
 .f-info-links,
 .f-info-socials,
 .f-info-brand{
@@ -46,21 +52,27 @@ body{
     align-items:center;
 }
 
+
 .f-info-links a{
     color:#222;
     text-decoration:none;
 }
 
+
 .f-info-links a:hover{
     text-decoration:underline;
 }
+
 
 .f-info-socials i{
     font-size:1.2rem;
     margin-right:1rem;
 }
 
-/* Cards */
+
+
+/* ================= CARDS ================= */
+
 
 .listing-card{
     border:none!important;
@@ -68,9 +80,11 @@ body{
     transition:.25s;
 }
 
+
 .listing-card:hover{
     transform:translateY(-4px);
 }
+
 
 .card-img-top{
     width:100%!important;
@@ -79,25 +93,32 @@ body{
     border-radius:16px!important;
 }
 
+
 .card-body{
     padding:0!important;
 }
+
 
 .listing-link{
     text-decoration:none;
     color:#222;
 }
 
+
 .card-img-overlay{
     opacity:0;
 }
+
 
 .card-img-overlay:hover{
     opacity:.15;
     background:#fff;
 }
 
-/* Buttons */
+
+
+/* ================= BUTTONS ================= */
+
 
 .add-btn,
 .edit-btn{
@@ -105,20 +126,26 @@ body{
     border:none!important;
 }
 
-/* Show */
+
+
+/* ================= SHOW PAGE ================= */
+
 
 .show-img{
     height:30vh;
 }
 
+
 .btns{
     display:flex;
 }
+
 
 .show-card{
     padding-left:0;
     padding-right:0;
 }
+
 
 #map{
     width:80vh;
@@ -126,113 +153,17 @@ body{
     border-radius:15px;
 }
 
-/* Search */
 
-.search-btn{
-    background:#fe424d;
-    color:#fff;
-    border-radius:25px;
-    padding:0 18px;
+
+/* ================= SEARCH ================= */
+
+
+.search-wrapper{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
 }
 
-.search-btn:hover{
-    background:#fe424d;
-    color:#fff;
-}
-
-.search-inp{
-    border-radius:25px;
-    padding:.5rem 2rem;
-}
-
-/* Filters */
-
-#filters{
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-}
-
-.filter{
-    text-align:center;
-    margin-right:2rem;
-    margin-top:2rem;
-    opacity:.7;
-}
-
-.filter:hover{
-    opacity:1;
-    cursor:pointer;
-}
-
-.filter p{
-    font-size:.8rem;
-}
-
-.tax-info{
-    display:none;
-}
-
-.tax-toggle{
-    border:1px solid #222;
-    border-radius:16px;
-    height:52px;
-    padding:0 18px;
-    margin-left:2rem;
-    display:flex;
-    align-items:center;
-}
-
-/* ===========================
-TABLET
-=========================== */
-
-@media (min-width:769px) and (max-width:1024px){
-
-.container{
-    max-width:95%;
-}
-
-#filters{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:15px;
-}
-
-}
-
-/* ===========================
-MOBILE
-=========================== */
-
-@media (max-width:768px){
-
-.container{
-    padding:15px;
-}
-
-/* Navbar */
-
-.navbar{
-    height:auto;
-    padding:10px;
-}
-
-.navbar-collapse{
-    margin-top:15px;
-}
-
-.navbar-nav{
-    text-align:center;
-}
-
-.nav-link{
-    padding:8px 0;
-}
-
-/* Search */
-
-/* ================= SEARCH BAR ================= */
 
 .search-form{
     display:flex;
@@ -241,80 +172,349 @@ MOBILE
     gap:10px;
 }
 
+
 .search-inp{
-    width:230px;
-    height:46px;
-    border-radius:999px;
+    width:260px;
+    height:45px;
+    border-radius:50px;
     border:1px solid #ddd;
     padding:0 20px;
     font-size:15px;
 }
 
+
 .search-btn{
-    height:46px;
-    padding:0 22px;
-    border:none;
-    border-radius:999px;
-    background:#fe424d;
-    color:#fff;
+
+    height:45px;
+    padding:0 25px;
+
+    background:#fe424d!important;
+    color:white!important;
+
+    border:none!important;
+    border-radius:50px!important;
+
     font-weight:600;
+
     display:flex;
     align-items:center;
+    justify-content:center;
     gap:8px;
+
 }
+
 
 .search-btn:hover{
-    background:#e63946;
-    color:#fff;
+
+    background:#e63946!important;
+    color:white!important;
+
 }
 
+
 .search-btn i{
-    color:#fff;
+    color:white;
 }
+
+
+
+/* ================= FILTERS ================= */
+
+
+#filters{
+
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+
+}
+
+
+.filter{
+
+    text-align:center;
+    margin-right:2rem;
+    margin-top:2rem;
+
+    opacity:.7;
+
+}
+
+
+.filter:hover{
+
+    opacity:1;
+    cursor:pointer;
+
+}
+
+
+.filter p{
+
+    font-size:.8rem;
+
+}
+
+
+.tax-info{
+
+    display:none;
+
+}
+
+
+.tax-toggle{
+
+    border:1px solid #222;
+    border-radius:16px;
+
+    height:52px;
+
+    padding:0 18px;
+
+    margin-left:2rem;
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+
+/* ================= TABLET ================= */
+
+
+@media (min-width:769px) and (max-width:1024px){
+
+
+.container{
+
+    max-width:95%;
+
+}
+
+
+#filters{
+
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+
+}
+
+
+.search-wrapper{
+
+    position:static;
+    transform:none;
+
+}
+
+}
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:768px){
+
+
+.container{
+
+    padding:15px;
+
+}
+
+
+/* Navbar */
+
+
+.navbar{
+
+    height:auto;
+    padding:10px;
+
+}
+
+
+.navbar-collapse{
+
+    margin-top:15px;
+
+}
+
+
+.navbar-nav{
+
+    text-align:center;
+
+}
+
+
+.nav-link{
+
+    padding:8px 0;
+
+}
+
+
+
+/* Search */
+
+
+.search-wrapper{
+
+    position:static;
+
+    transform:none;
+
+    width:100%;
+
+    margin:15px 0;
+
+}
+
+
+
+.search-form{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+}
+
+
+
+.search-inp{
+
+    width:65%;
+
+    height:45px;
+
+    border-radius:50px;
+
+    padding:0 15px;
+
+}
+
+
+
+.search-btn{
+
+    width:35%;
+
+    height:45px;
+
+    padding:0 10px;
+
+    font-size:14px;
+
+}
+
+
+
+.search-btn i{
+
+    font-size:14px;
+
+}
+
+
 
 /* Filters */
 
+
 #filters{
+
     display:flex;
+
     flex-wrap:nowrap;
+
     overflow-x:auto;
+
     white-space:nowrap;
+
     padding-bottom:12px;
+
     margin-top:10px;
+
 }
+
 
 #filters::-webkit-scrollbar{
+
     display:none;
+
 }
+
+
 
 .filter{
+
     min-width:75px;
+
     margin-right:18px;
+
     margin-top:0;
+
 }
 
+
+
 .tax-toggle{
+
     min-width:260px;
+
     margin-left:18px;
+
 }
+
+
 
 /* Cards */
 
+
 .card-img-top{
+
     height:250px!important;
+
 }
+
+
 
 .listing-card{
+
     margin-bottom:20px;
+
 }
+
+
 
 .card-body{
+
     padding-top:8px!important;
+
 }
 
+
+
+/* Map */
+
+
 #map{
+
     width:100%;
+
     height:300px;
+
 }
+
 
 }
