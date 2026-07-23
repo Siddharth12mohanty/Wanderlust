@@ -135,28 +135,32 @@ const filters=document.querySelectorAll(".filter");
 
 const cards=document.querySelectorAll(".listing-card");
 
-filters.forEach(filter=>{
+let selectedCategory = null;
 
-filter.addEventListener("click",()=>{
-
-const category=filter.dataset.filter;
-
-cards.forEach(card=>{
-
-if(card.dataset.category===category){
-
-card.parentElement.style.display="block";
-
-}else{
-
-card.parentElement.style.display="none";
-
-}
-
-});
-
-});
-
+filters.forEach(filter => {
+    filter.addEventListener("click", () => {
+        const category = filter.dataset.filter;
+        
+        if (selectedCategory === category) {
+            selectedCategory = null;
+            filters.forEach(f => f.classList.remove("active-filter"));
+            cards.forEach(card => {
+                card.parentElement.style.display = "block";
+            });
+        } else {
+            selectedCategory = category;
+            filters.forEach(f => f.classList.remove("active-filter"));
+            filter.classList.add("active-filter");
+            
+            cards.forEach(card => {
+                if (card.dataset.category === category) {
+                    card.parentElement.style.display = "block";
+                } else {
+                    card.parentElement.style.display = "none";
+                }
+            });
+        }
+    });
 });
 
 </script>
