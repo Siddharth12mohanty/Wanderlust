@@ -29,30 +29,39 @@
       </ul>
 
       <!-- Search -->
-      <form
-        class="d-flex flex-column flex-lg-row align-items-center gap-2 mx-lg-auto my-3 my-lg-0"
-        action="/listings/search"
-        method="GET">
+     <div class="navbar-nav mx-auto align-items-center">
 
-        <select class="form-select search-inp" name="country">
-          <option value="">🌍 All Countries</option>
+<form class="search-form"
+      action="/listings/search"
+      method="GET">
 
-          <% if (countries && countries.length) { %>
-            <% countries.forEach(country => { %>
-              <option value="<%= country %>">
-                <%= country %>
-              </option>
-            <% }) %>
-          <% } %>
+<select class="form-select search-inp" name="country">
 
-        </select>
+<option value="">🌍 All Countries</option>
 
-        <button class="btn search-btn" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          Search
-        </button>
+<% if(countries && countries.length){ %>
 
-      </form>
+<% countries.forEach(country=>{ %>
+
+<option value="<%= country %>"><%= country %></option>
+
+<% }) %>
+
+<% } %>
+
+</select>
+
+<button class="btn search-btn">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Search
+
+</button>
+
+</form>
+
+</div>
 
       <!-- Right -->
       <ul class="navbar-nav ms-lg-auto text-center">
