@@ -39,22 +39,15 @@
     <form class="d-flex" action="/listings/search" method="GET">
 
        <select class="form-select me-2 search-inp" name="country">
-
     <option value="">🌍 All Countries</option>
 
-    <!-- <% countries.forEach(country => { %> -->
-      <% if (countries) { %>
-    <% countries.forEach(country => { %>
-        <option value="<%= country %>"><%= country %></option>
-    <% }) %>
-<% } %>
-
-        <option value="<%= country %>">
-            <%= country %>
-        </option>
-
-    <% }) %>
-
+    <% if (countries && countries.length) { %>
+        <% countries.forEach(country => { %>
+            <option value="<%= country %>">
+                <%= country %>
+            </option>
+        <% }) %>
+    <% } %>
 </select>
 
         <button class="btn search-btn" type="submit">

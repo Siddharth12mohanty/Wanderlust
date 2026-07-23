@@ -163,9 +163,14 @@ app.use("/", userRouter);
 //     res.send("successful testing");
 // });
 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
+//     console.log("404 URL:", req.originalUrl);
+//     next(new ExpressError(404, "Page not found!"));
+// });
+
+app.use((req,res,next)=>{
     console.log("404 URL:", req.originalUrl);
-    next(new ExpressError(404, "Page not found!"));
+    next(new ExpressError(404,"Page not found!"));
 });
 
 // app.use((err,req,res,next)=>{
@@ -181,15 +186,14 @@ app.use((req, res, next) => {
 // });
 
 app.use((err, req, res, next) => {
+
     console.log("========== REAL ERROR ==========");
-    console.error(err.stack || err);
+    console.log(err.stack);
     console.log("Status:", err.statusCode);
     console.log("Message:", err.message);
     console.log("===============================");
 
-    const statusCode = err.statusCode || 500;
-
-    res.status(statusCode).send(err.stack || err.message);
+    res.status(err.statusCode || 500).send(err.stack);
 });
 
 // app.listen(8080,()=>{
